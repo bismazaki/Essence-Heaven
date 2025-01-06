@@ -9,10 +9,10 @@ export default function Home() {
       <div className="relative w-full h-[300px]">
         <Image
           className="object-cover w-full md:h-[700]"
-          src="/PerfumeBanner.png"
+          src="/EmeraldBanner.png"
           alt="Perfume banner"
           width={1000} // Set the width of the image
-          height={300} // Set the height of the image
+          height={400} // Set the height of the image
         />
       </div>
 

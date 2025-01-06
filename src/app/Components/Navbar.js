@@ -5,6 +5,7 @@ import React, { useState } from 'react';
 import { FaCartArrowDown } from "react-icons/fa6";
 import { IoClose } from "react-icons/io5";
 import { BsFillHandbagFill } from "react-icons/bs";
+import { RiAccountCircleFill } from "react-icons/ri";
 
 const Navbar = () => {
     const [isCartOpen, setCartOpen] = useState(false);
@@ -15,15 +16,19 @@ const Navbar = () => {
 
     return (
         <>
-            <header className="text-gray-600 body-font relative z-50">
+            <header className="sticky top-0 text-gray-600 body-font shadow-md p-2 relative z-50 bg-white">
                 <div className="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
                     {/* Logo */}
                     <div className="flex items-center justify-between w-full md:w-auto">
-                        <a className="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
-                            <Image src="/logo1.png" alt="image" width={100} height={100} />
-                            <span className="ml-4 mt-2 text-4xl font-serif">Essence Heaven</span>
-                        </a>
+                        <div className="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
+                            <Image src="/Emeraldlogo.png" alt="image" width={100} height={100} />
+                           <Link href='/' className='ml-4 mt-2 text-4xl font-serif text-customGreen'>Essence Heaven</Link>
+                        </div>
                         {/* Cart Icon for Mobile */}
+                       <Link href={'/Login'}><RiAccountCircleFill
+                            className="md:hidden mx-1 text-gray-900 cursor-pointer"
+                            size={40}
+                        /></Link> 
                         <FaCartArrowDown
                             onClick={toggleCart}
                             className="md:hidden text-gray-900 cursor-pointer"
@@ -42,11 +47,19 @@ const Navbar = () => {
                     </nav>
 
                     {/* Cart Icon for Desktop */}
-                    <FaCartArrowDown
-                        onClick={toggleCart}
-                        className="hidden md:block md:ml-auto text-gray-900 cursor-pointer"
-                        size={40}
-                    />
+                    <div className="hidden md:flex md:space-x-4 md:ml-auto">
+                        <Link href={'/Login'}>
+                        <RiAccountCircleFill
+                            className="text-gray-900 cursor-pointer"
+                            size={40}
+                        />
+                        </Link>
+                        <FaCartArrowDown
+                            onClick={toggleCart}
+                            className="text-gray-900 cursor-pointer"
+                            size={40}
+                        />
+                    </div>
                 </div>
 
                 {/* Cart Sidebar */}
